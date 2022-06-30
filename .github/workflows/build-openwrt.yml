@@ -98,21 +98,14 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
-    - name: SSH connection to Actions
-#      uses: csexton/debugger-action@master
-      if: env.SSH_ACTIONS == 'true'
-      uses: P3TERX/ssh2actions@v1.0.0
-#     uses: mxschmitt/action-tmate@v3
-      timeout-minutes: 30
-
-    - name: Download package
-      id: package
-      run: |
-        cd openwrt
-        make defconfig
-        make download -j8
-        find dl -size -1024c -exec ls -l {} \;
-        find dl -size -1024c -exec rm -f {} \;
+  #  - name: Download package
+   #   id: package
+    #  run: |
+     #   cd openwrt
+      #  make defconfig
+       # make download -j8
+        #find dl -size -1024c -exec ls -l {} \;
+        #find dl -size -1024c -exec rm -f {} \;
 
     - name: Compile the firmware
       id: compile
